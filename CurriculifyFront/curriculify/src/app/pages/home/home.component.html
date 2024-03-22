@@ -1,0 +1,36 @@
+<!-- home.component.html -->
+<div class="container mt-5">
+    <div class="row">
+        <h2>Dados</h2>
+        <div class="mb-3">
+            <label for="nome" class="form-label">Nome</label>
+            <input type="text" class="form-control" id="nome" value={{usuarioNome}} />
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" value={{usuarioEmail}} />
+        </div>
+        <div class="col-md-6">
+            <h2>Experiência Acadêmica</h2>
+            <div style="width: 100%; height: 200px; overflow: auto; border: 1px solid #ccc; margin: 20px auto; padding: 10px;">
+                <div *ngFor="let expAcademica of expAcademicas" style="width: 100%; margin-bottom: 10px;">
+                    <div>{{expAcademica['dataInicio']}} - {{expAcademica['dataTermino']}}</div>
+                    <div>{{expAcademica['instituicaoEnsino']}} - {{expAcademica['curso']}}</div>
+                </div>
+            </div>
+            <button class="btn btn-primary mt-3" (click)="navegarNovaExperienciaAcademica()" >+ Experiência Acadêmica</button>
+            <!-- <button class="btn btn-primary mt-3" >Gerar Currículo</button> -->
+        </div>
+        <div class="col-md-6">
+            <h2>Experiência Profissional</h2>
+            <div style="width: 100%; height: 200px; overflow: auto; border: 1px solid #ccc; margin: 20px auto; padding: 10px;">
+                <div *ngFor="let expProfissional of expProfissionais" style="width: 100%; margin-bottom: 10px;">
+                    <div>{{expProfissional['dataInicio']}} - {{expProfissional['dataTermino']}}</div>
+                    <div>{{expProfissional['empresa']}} - {{expProfissional['cargo']}}</div>
+                </div>
+            </div>
+            <button class="btn btn-primary mt-3" (click)="navegarNovaExperienciaProfissional()" >+ Experiência Profissional</button>
+        </div>
+        <button class="btn btn-primary mt-3" (click)="onClickBtnGerarCurriculo()" >Gerar Currículo</button>
+    </div>
+</div>
